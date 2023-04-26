@@ -9,7 +9,7 @@ pipeline {
 	}
       stage('Run python tests') {
         steps {      
-          sh 'py.test -v -s'
+          sh 'robot Test_MSSQL.robot'
         }
    }
 
