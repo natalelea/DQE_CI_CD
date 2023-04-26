@@ -1,0 +1,4 @@
+pymssql~=2.2.7
+pytest~=7.3.0
+pytest-html~=3.2.0
+
