@@ -24,15 +24,13 @@ pipeline {
    	}
 	stage('Make changes') {
         	steps {      
-          		sh "touch release.txt"
-                	sh "git add release.txt"
-                	sh "git commit -m 'Add release.txt from Jenkins Pipeline'"
+                	sh "git commit -m "initial commit"
         	}
    	}
 	stage('Push to Git Repository') {
         	steps {      
           		withCredentials([gitUsernamePassword(credentialsId: 'github_credentials', gitToolName: 'Default')]) {
-                    	sh "git push -u origin release"
+                    	sh "git push origin release"
 			}
         	}
    	}
