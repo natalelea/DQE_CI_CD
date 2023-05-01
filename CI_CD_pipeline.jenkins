@@ -24,14 +24,14 @@ pipeline {
    	}
 	stage('Make changes') {
         	steps {      
-                	sh "git add ."
+			sh "git add ."
 			sh "git commit -m 'initial commit'"
         	}
    	}
 	stage('Push to Git Repository') {
         	steps {      
           		withCredentials([gitUsernamePassword(credentialsId: 'github_credentials', gitToolName: 'Default')]) {
-                    	sh "git push origin release"
+                    	sh "git push origin main"
 			}
         	}
    	}
