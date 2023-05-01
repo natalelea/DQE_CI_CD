@@ -24,7 +24,7 @@ pipeline {
    	}
 	stage('Make changes') {
         	steps {      
-                	sh "git commit -m "initial commit"
+                	sh "git commit -m 'initial commit'"
         	}
    	}
 	stage('Push to Git Repository') {
