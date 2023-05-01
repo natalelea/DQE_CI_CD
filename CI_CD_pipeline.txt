@@ -22,5 +22,25 @@ pipeline {
                 	)
         	}
    	}
-	
+	stage('Make changes') {
+        	steps {      
+          		sh "touch release.txt"
+                	sh "git add release.txt"
+                	sh "git commit -m 'Add release.txt from Jenkins Pipeline'"
+        	}
+   	}
+	stage('Push to Git Repository') {
+        	steps {      
+          		withCredentials([gitUsernamePassword(credentialsId: 'github_creds', gitToolName: 'Default')]) {
+                    	sh "git push -u origin release"
+			}
+        	}
+   	}
+
+  }
+	post {
+        always {
+            deleteDir()
+        }
+  }
 }
